@@ -1,4 +1,6 @@
-PKG cstruct nocrypto irmin
+PKG cstruct nocrypto
+PKG sexp ppx_sexp_conv
+
 S src
 S test
 B _build/src

@@ -1,9 +1,9 @@
 
-type log with sexp
+type log [@@deriving sexp]
 
-type entry with sexp
+type entry [@@deriving sexp]
 
-type key with sexp
+type key [@@deriving sexp]
 
 val key_of_cstruct : Cstruct.t -> key
 val cstruct_of_key : key -> Cstruct.t

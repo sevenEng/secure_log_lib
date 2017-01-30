@@ -1,12 +1,12 @@
 open Nocrypto
 open Sexplib.Std
 
-type key = K of Cstruct.t with sexp
+type key = K of Cstruct.t [@@deriving sexp]
 
 let key_of_cstruct v = K v
 let cstruct_of_key (K v) = v
 
-type entry_type = Cstruct.t with sexp
+type entry_type = Cstruct.t [@@deriving sexp]
 
 let hash_algo = `SHA256
 module Cipher = Cipher_block.AES.CBC
@@ -16,12 +16,12 @@ type entry =
   ; cipher_text : Cstruct.t
   ; hash        : Cstruct.t
   ; hash_mac    : Cstruct.t
-  } with sexp
+  } [@@deriving sexp]
 
 type log =
   { key     : key
   ; entries : entry list
-  } with sexp
+  } [@@deriving sexp]
 
 let previous_hash entries =
   match entries with

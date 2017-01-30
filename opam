@@ -16,9 +16,10 @@ remove: [
   ["ocamlfind" "remove" "secure_log_lib"]
 ]
 depends: [
-  "irmin" {<= "0.9.9"}
-  "ocamlfind" 
-  "nocrypto" 
-  "cstruct" 
+  "ocamlfind"
+  "nocrypto"
+  "cstruct"
   "sexplib"
+  "ppx_sexp_conv"
+  "ounit" { test }
 ]
