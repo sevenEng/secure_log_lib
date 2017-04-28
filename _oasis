@@ -10,6 +10,10 @@ OASISFormat: 0.4
 BuildTools: ocamlbuild
 Plugins: META (0.4), DevFiles (0.4)
 
+Flag test
+  Description: build and execute test scripts
+  Default:     false
+
 Library "secure_log_lib"
   Path: src
   Modules: Secure_log
@@ -18,6 +22,7 @@ Library "secure_log_lib"
 Executable "test_log"
   Path: test
   MainIs: test_log.ml
+  Build$: flag(test)
   CompiledObject: native
   Install: false
   BuildDepends: oUnit, secure_log_lib
